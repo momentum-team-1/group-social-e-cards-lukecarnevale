@@ -14,16 +14,16 @@ function Navigation () {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href='/cards/all/'>Cards</NavLink>
+              <NavLink><Login>Login</Login></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href='/cards/all/'>Card Feed</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href='/auth/friends/'>Friends</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href='/auth/users/me/'>Profile</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href='/auth/users/me/'>Log out</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

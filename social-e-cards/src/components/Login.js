@@ -1,7 +1,6 @@
 /* globals localStorage */
 
 import React from 'react'
-// import './App.css'
 import { getToken } from '../Api'
 import { Button, Form, FormGroup, Label, Input, CardBody } from 'reactstrap'
 
@@ -50,8 +49,8 @@ class Login extends React.Component {
             this.state.token
               ? (
                 <div>
-                  <h2>Welcome, {this.state.username}!</h2>
-                  <button className='button' onClick={this.handleLogout}>Log out</button>
+                  <h4>Welcome, {this.state.username}!</h4>
+                  <Button color='primary' onClick={this.handleLogout}>Log out</Button>
                 </div>
               )
               : (

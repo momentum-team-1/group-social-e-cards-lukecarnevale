@@ -4,12 +4,14 @@ import Navigation from './components/Navigation'
 import Cards from './components/Cards'
 import Login from './components/Login'
 import Profile from './components/Profile'
+import loading from './components/loading'
 import {
   Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText
 } from 'reactstrap'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Loading from 'react-loading'
 
 class App extends React.Component {
   render () {
@@ -21,10 +23,10 @@ class App extends React.Component {
             <Navigation />
           </CardHeader>
           <Switch>
+            <Loading />
             <Route path='/auth/token/login/' component={Login} />
             <Route path='/auth/users/me/' component={Profile} />
-            <Route path='/cards/all/' component={Cards} />
-            <Login />
+            <Route path='/cards/all/' exact component={Cards} />
           </Switch>
         </Router>
         <CardBody />

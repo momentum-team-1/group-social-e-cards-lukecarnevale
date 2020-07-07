@@ -9,7 +9,7 @@ function Navigation () {
   return (
     <div>
       <Navbar color='faded' light>
-        <NavbarBrand href='/' className='mr-auto'>social-e-Cards</NavbarBrand>
+        <NavbarBrand href='/auth/users/me/' className='mr-auto'>social-e-Cards</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className='mr-2' />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
@@ -24,6 +24,9 @@ function Navigation () {
             </NavItem>
             <NavItem>
               <NavLink href='/auth/users/me/'>Profile</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href='/addcard/'>Create a Card</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

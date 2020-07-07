@@ -1,15 +1,15 @@
 import React from 'react'
 import { getCards } from '../Api'
-import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap'
+import { Card, CardImg, CardText, CardTitle } from 'reactstrap'
 import '../App.css'
+import moment from 'moment'
 
 class Cards extends React.Component {
   constructor () {
     super()
     this.state = {
       cards: [],
-      token: window.localStorage.getItem('login_auth_token'),
-      isloading: null
+      token: window.localStorage.getItem('login_auth_token')
     }
   }
 
@@ -17,7 +17,7 @@ class Cards extends React.Component {
     if (this.state.token) {
       getCards(this.state.token)
         .then(cards => this.setState({ cards: cards }))
-    } console.log('component mounted')
+    }
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -25,6 +25,8 @@ class Cards extends React.Component {
       getCards(this.state.token).then(cards => this.setState({ cards: cards }))
     }
   }
+
+  //   TODO: Get CSS element from API call to render on the page
 
   render () {
     return (
@@ -37,9 +39,7 @@ class Cards extends React.Component {
                 <CardImg />
                 <CardTitle> {card.outer_message}</CardTitle>
                 <CardText>{card.inner_message}</CardText>
-                <small classname='text-muted'>Card created by {card.author.username} on {card.posted_at}</small>
-                {/* TODO: utilize moment js to work with time */}
-
+                <small classname='text-muted'>Card created by {card.author.username} on {moment(card.posted_at).format('MMMM Do YYYY')}</small>
               </Card>)}
           </div>
         </div>

@@ -12,23 +12,34 @@ export function getToken (username, password) {
 }
 
 export function getCards (token) {
-  return request.get('/cards/', {
+  return request.get('/cards/all/', {
     headers: {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log(res.data)
+    console.log('api', res.data)
     return res.data.results
   })
 }
 
 export function getUsersCards (token) {
-  return request.get('/cards/own/', {
+  return request.get('/cards/', {
     headers: {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log(res.data)
+    console.log('api', res.data)
     return res.data.results
+  })
+}
+
+export function getUsersInfo (token) {
+  return request.get('/user/info/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => {
+    console.log('api', res.data)
+    return res.data
   })
 }

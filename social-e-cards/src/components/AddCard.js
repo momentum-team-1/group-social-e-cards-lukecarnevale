@@ -7,8 +7,8 @@ class AddCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      outer_text: '',
-      inner_text: '',
+      outer_message: '',
+      inner_message: '',
       color: '',
       font: '',
       border: '',
@@ -23,11 +23,11 @@ class AddCard extends React.Component {
   }
 
   handleOuterChange (event) {
-    this.setState({ outer_text: event.target.value })
+    this.setState({ outer_message: event.target.value })
   }
 
   handleInnerChange (event) {
-    this.setState({ inner_text: event.target.value })
+    this.setState({ inner_message: event.target.value })
   }
 
   handleColorChange (event) {
@@ -46,15 +46,15 @@ class AddCard extends React.Component {
     event.preventDefault()
     axios
       .post('https://ld-social-cards.herokuapp.com/api/cards/', {
-        outer_text: this.state.outer_text,
-        inner_text: this.state.inner_text,
+        outer_message: this.state.outer_message,
+        inner_message: this.state.inner_message,
         color: this.state.color,
         font: this.state.font,
         border: this.state.border
       },
       {
         headers: {
-          Authorization: `Token ${this.props.token}`
+          Authorization: `Token ${this.props.authToken}`
         }
       })
       .then(response =>
@@ -78,7 +78,7 @@ class AddCard extends React.Component {
                 <Input
                   type='text'
                   onChange={this.handleOuterChange}
-                  value={this.state.outer_text}
+                  value={this.state.outer_message}
                   id='title'
                   name='title'
                   placeholder='What is the theme of your card?'
@@ -89,7 +89,7 @@ class AddCard extends React.Component {
               <FormGroup row>
                 <Input
                   onChange={this.handleInnerChange}
-                  value={this.state.inner_text}
+                  value={this.state.inner_message}
                   type='textarea'
                   id='innerText'
                   placeholder='Write your meaningful message here!'
@@ -107,8 +107,30 @@ class AddCard extends React.Component {
                     id='selectColor'
                     onChange={this.handleColorChange}
                     value={this.state.color}
+                    required
                   >
-                    {/* {this.state.color.map(color => <option key={this.props.token}>{this.state.color}</option>)} */}
+                    <option value=''>---</option>
+                    <option value='Living Coral'>Living Coral</option>
+                    <option value='Ultra Violet'>Ultra Violet</option>
+                    <option value='Greenery'>Greenery</option>
+                    <option value='Rose Quartz'>Rose Quartz</option>
+                    <option value='Serenity'>Serenity</option>
+                    <option value='Marsala'>Marsala</option>
+                    <option value='Radiand Orchid'>Radiand Orchid</option>
+                    <option value='Emerald'>Emerald</option>
+                    <option value='Tangerine Tango'>Tangerine Tango</option>
+                    <option value='Honeysucle'>Honeysuckle</option>
+                    <option value='Turquoise'>Turquoise</option>
+                    <option value='Mimosa'>Mimosa</option>
+                    <option value='Blue Izis'>Blue Izis</option>
+                    <option value='Chili Pepper'>Chili Pepper</option>
+                    <option value='Sand Dollar'>Sand Dollar</option>
+                    <option value='Blue Turquoise'>Blue Turquoise</option>
+                    <option value='Tigerlily'>Tigerlily</option>
+                    <option value='Aqua Sky'>Aqua Sky</option>
+                    <option value='True Red'>True Red</option>
+                    <option value='Fuchsia Rose'>Fuchsia Rose</option>
+                    <option value='Cerulean Blue'>Cerulean Blue</option>
                   </Input>
                 </Col>
               </FormGroup>
@@ -122,8 +144,12 @@ class AddCard extends React.Component {
                     id='selectFont'
                     onChange={this.handleFontChange}
                     value={this.state.font}
+                    required
                   >
-                    {/* {this.state.font.map(font => <option key={this.props.token}>{this.state.font}</option>)} */}
+                    <option value=''>---</option>
+                    <option value='Montserrat + Lora (Modern)'>Montserrat + Lora (Modern)</option>
+                    <option value='Prata + Lato (Elegant)'>Prata + Lato (Elegant)</option>
+                    <option value='Archivo Black + Judson (Emphasis)'>Archivo Black + Judson (Emphasis)</option>
                   </Input>
                 </Col>
               </FormGroup>
@@ -137,8 +163,12 @@ class AddCard extends React.Component {
                     id='selectBorder'
                     onChange={this.handleBorderChange}
                     value={this.state.border}
+                    required
                   >
-                    {/* {this.state.border.choices.map(border => <option key={this.props.token}>{this.state.border.choices}</option>)} */}
+                    <option value=''>---</option>
+                    <option value='Inset'>Inset</option>
+                    <option value='Solid'>Solid</option>
+
                   </Input>
                 </Col>
               </FormGroup>

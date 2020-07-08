@@ -8,14 +8,13 @@ class Login extends React.Component {
   constructor () {
     super()
     this.state = {
-      username: localStorage.getItem('login_username') || '',
+      username: '',
       password: '',
-      token: localStorage.getItem('login_auth_token'),
       error: null
     }
 
     this.handleLogin = this.handleLogin.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+    // this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogin (event) {
@@ -23,9 +22,7 @@ class Login extends React.Component {
 
     getToken(this.state.username, this.state.password)
       .then(token => {
-        this.setState({ token: token, password: '' })
-        localStorage.setItem('login_username', this.state.username)
-        localStorage.setItem('login_auth_token', token)
+        this.props.setUserCredentials(this.state.username, token)
       })
       .catch(error => {
         console.log(error)
@@ -33,13 +30,13 @@ class Login extends React.Component {
       })
   }
 
-  handleLogout (event) {
-    event.preventDefault()
+  // handleLogout (event) {
+  //   event.preventDefault()
 
-    this.setState({ token: null, username: '' })
-    localStorage.removeItem('login_username')
-    localStorage.removeItem('login_auth_token')
-  }
+  //   this.setState({ token: null, username: '' })
+  //   localStorage.removeItem('login_username')
+  //   localStorage.removeItem('login_auth_token')
+  // }
 
   render () {
     return (
@@ -49,8 +46,10 @@ class Login extends React.Component {
             this.state.token
               ? (
                 <div>
+                  <hr />
                   <h4>Welcome, {this.state.username}!</h4>
-                  <Button color='primary' onClick={this.handleLogout}>Log out</Button>
+                  <Button color='link' onClick={this.handleLogout}>Log out</Button>
+                  <hr />
                 </div>
               )
               : (

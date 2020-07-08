@@ -14,7 +14,7 @@ function Navigation () {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink><Login>Login</Login></NavLink>
+              <NavLink href='/login/'>Login</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href='/cards/all/'>Card Feed</NavLink>

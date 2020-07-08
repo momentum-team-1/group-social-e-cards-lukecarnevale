@@ -39,7 +39,7 @@ export function getUsersInfo (token) {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log('api', res.data)
+    console.log('UserInfo', res.data)
     return res.data.results
   })
 }
@@ -50,7 +50,18 @@ export function getFollows (token) {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log('api', res.data)
+    console.log('following', res.data)
     return res.data.results
   })
 }
+
+// export function getCardId (token) {
+//   return request.get(`/cards/${id}/`, {
+//     headers: {
+//       Authorization: `Token ${token}`
+//     }
+//   }).then(res => {
+//     console.log('cardID', res.data)
+//     return res.data.results
+//   })
+// }

@@ -39,13 +39,13 @@ class EditCard extends React.Component {
   }
 
   handleBorderChange (event) {
-    this.setState({ borderStyle: event.target.value })
+    this.setState({ border: event.target.value })
   }
 
   handleSubmit (event) {
     event.preventDefault()
     axios
-      .Patch('https://ld-social-cards.herokuapp.com/api/cards/', {
+      .Patch('https://ld-social-cards.herokuapp.com/api/my_cards/', {
         outer_text: this.state.outer_text,
         inner_text: this.state.inner_text,
         color: this.state.color,
@@ -70,7 +70,7 @@ class EditCard extends React.Component {
       <div>
         <Container row>
           <Col sm={10}>
-            <h1> Add a New Card!</h1>
+            <h1> Edit your Card!</h1>
           </Col>
           <CardBody>
             <Form onSubmit={this.handleSubmit}>
@@ -108,7 +108,10 @@ class EditCard extends React.Component {
                     onChange={this.handleColorChange}
                     value={this.state.color}
                   >
-                    {/* {this.state.color.map(color => <option key={this.props.token}>{this.state.color}</option>)} */}
+                    <option value=''>white</option>
+                    <option value='red'>Red</option>
+                    <option value='purple'>purple</option>
+                    <option value='blue'>blue</option>
                   </Input>
                 </Col>
               </FormGroup>
@@ -123,7 +126,10 @@ class EditCard extends React.Component {
                     onChange={this.handleFontChange}
                     value={this.state.font}
                   >
-                    {/* {this.state.font.map(font => <option key={this.props.token}>{this.state.font}</option>)} */}
+                    <option value=''>-- None --</option>
+                    <option value='dotted'>dotted</option>
+                    <option value='dashed'>dashed</option>
+                    <option value='solid'>solid</option>
                   </Input>
                 </Col>
               </FormGroup>
@@ -138,7 +144,9 @@ class EditCard extends React.Component {
                     onChange={this.handleBorderChange}
                     value={this.state.border}
                   >
-                    {/* {this.state.border.map(border => <option value={this.state.border} key={this.props.token}>{this.state.border}</option>)} */}
+                    <option value='helvetica'>helvetica</option>
+                    <option value='courier new'>courier new
+                    </option>
                   </Input>
                 </Col>
               </FormGroup>
@@ -149,9 +157,9 @@ class EditCard extends React.Component {
                 id='submit'
                 name='submit'
                 value='Submit'
-                color='primary'
+                color='alert'
               >
-            Add Card
+            Make Changes
               </Button>
             </Form>
           </CardBody>

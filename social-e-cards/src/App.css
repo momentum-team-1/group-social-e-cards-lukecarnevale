@@ -24,6 +24,141 @@ main > .container {
   ;
 }
 
+
+.backgroundLC {
+  background-color: #ff6f61;
+  color: antiquewhite;
+} 
+          
+.backgroundUV {
+  background-color: #6B5B95;
+  color: antiquewhite;
+} 
+          
+.backgroundGY {
+  background-color: #88B04B ;
+  color: antiquewhite;
+} 
+      
+.backgroundRQ {
+  background-color:#F7CAC9 ;
+  color: antiquewhite;
+} 
+        
+.backgroundSY {
+  background-color: #92A8D1;
+  color: antiquewhite;
+} 
+      
+.backgroundMA {
+  background-color: #955251;
+  color: antiquewhite;
+} 
+    
+.backgroundRO {
+  background-color: #B565A7;
+  color: antiquewhite;
+} 
+
+.backgroundED {
+  background-color: #009B77;
+  color: antiquewhite;
+} 
+                  
+.backgroundTT {
+  background-color: #DD4124;
+  color: antiquewhite;
+} 
+              
+.backgroundHS {
+  background-color: #D65076;
+  color: antiquewhite;
+} 
+                      
+.backgroundTQ {
+  background-color: #45B8AC;
+  color: antiquewhite;
+} 
+                    
+.backgroundMM {
+  background-color:#EFC050 ;
+  color: antiquewhite;
+} 
+                  
+.backgroundBI {
+  background-color:#5B5EA6 ;
+  color: antiquewhite;
+} 
+                    
+.backgroundCP {
+  background-color: #9B2335;
+  color: antiquewhite;
+} 
+                        
+.backgroundSD {
+  background-color: #DFCFBE;
+  color: antiquewhite;
+} 
+                      
+.backgroundBT {
+  background-color: #55B4B0;
+  color: antiquewhite;
+} 
+         
+.backgroundTL {
+  background-color: #E15D44;
+  color: antiquewhite;
+} 
+                    
+.backgroundAS {
+  background-color: #7FCDCD;
+  color: antiquewhite;
+} 
+                    
+.backgroundTR {
+  background-color: #BC243C;
+  color: antiquewhite;
+} 
+                    
+.backgroundFR {
+  background-color: #C3447A;
+  color: antiquewhite;
+} 
+                        
+.backgroundCB {
+  background-color: #98B4D4;
+  color: antiquewhite;
+} 
+
+.borderTopDotted {
+  border-top: 7px dotted #000;
+  box-shadow: inset 0 -3px 0 0 #000, 0 3px 0 0 #000;
+}
+
+.borderBottomDotted {
+  border-bottom: 7px dotted #000;
+  box-shadow: inset 0 -3px 0 0 #000, 0 3px 0 0 #000;
+}
+
+.borderSolid {
+  border: rgb(70, 70, 70) solid;
+}
+
+.borderDashed {
+  border: rgb(70, 70, 70) inset;
+}
+
+.fontModern {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.fontElegant {
+  font-family: cursive;
+}
+
+.fontEmphasis {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .myCards {
   text-align: center;
 }

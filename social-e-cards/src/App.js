@@ -32,8 +32,8 @@ class App extends React.Component {
         <CardBody />
 
         <CardFooter>
-          <CardText className='#'>
-        Site powered by ReactJS
+          <CardText className='footer'>
+        Created by DG & LC powered by React &#169;
           </CardText>
         </CardFooter>
       </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import { Button, Form, FormGroup, Label, Input, Col, CardBody, Container } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Col, CardBody, Container, CardTitle } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
-class AddCard extends React.Component {
+class EditCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -39,13 +39,13 @@ class AddCard extends React.Component {
   }
 
   handleBorderChange (event) {
-    this.setState({ border: event.target.value })
+    this.setState({ borderStyle: event.target.value })
   }
 
   handleSubmit (event) {
     event.preventDefault()
     axios
-      .post('https://ld-social-cards.herokuapp.com/api/cards/', {
+      .Patch('https://ld-social-cards.herokuapp.com/api/cards/', {
         outer_text: this.state.outer_text,
         inner_text: this.state.inner_text,
         color: this.state.color,
@@ -72,7 +72,7 @@ class AddCard extends React.Component {
           <Col sm={10}>
             <h1> Add a New Card!</h1>
           </Col>
-          <CardBody className='form-area'>
+          <CardBody>
             <Form onSubmit={this.handleSubmit}>
               <FormGroup row>
                 <Input
@@ -91,7 +91,7 @@ class AddCard extends React.Component {
                   onChange={this.handleInnerChange}
                   value={this.state.inner_text}
                   type='textarea'
-                  id='innerText'
+                  id='subject'
                   placeholder='Write your meaningful message here!'
                   maxLength='140'
                   rows='7'
@@ -138,7 +138,7 @@ class AddCard extends React.Component {
                     onChange={this.handleBorderChange}
                     value={this.state.border}
                   >
-                    {/* {this.state.border.choices.map(border => <option key={this.props.token}>{this.state.border.choices}</option>)} */}
+                    {/* {this.state.border.map(border => <option value={this.state.border} key={this.props.token}>{this.state.border}</option>)} */}
                   </Input>
                 </Col>
               </FormGroup>
@@ -161,4 +161,4 @@ class AddCard extends React.Component {
   }
 }
 
-export default AddCard
+export default EditCard

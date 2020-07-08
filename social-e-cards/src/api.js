@@ -12,7 +12,7 @@ export function getToken (username, password) {
 }
 
 export function getCards (token) {
-  return request.get('/cards/all/', {
+  return request.get('/cards/', {
     headers: {
       Authorization: `Token ${token}`
     }
@@ -23,7 +23,7 @@ export function getCards (token) {
 }
 
 export function getUsersCards (token) {
-  return request.get('/cards/', {
+  return request.get('/cards/my_cards/', {
     headers: {
       Authorization: `Token ${token}`
     }
@@ -40,6 +40,17 @@ export function getUsersInfo (token) {
     }
   }).then(res => {
     console.log('api', res.data)
-    return res.data
+    return res.data.results
+  })
+}
+
+export function getFollows (token) {
+  return request.get('/follows/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => {
+    console.log('api', res.data)
+    return res.data.results
   })
 }

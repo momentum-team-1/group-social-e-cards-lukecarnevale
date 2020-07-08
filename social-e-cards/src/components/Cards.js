@@ -1,6 +1,6 @@
 import React from 'react'
 import { getCards } from '../Api'
-import { Card, CardImg, CardText, CardTitle } from 'reactstrap'
+import { Card, CardText, CardTitle, Container, CardBody } from 'reactstrap'
 import '../App.css'
 import moment from 'moment'
 
@@ -31,18 +31,21 @@ class Cards extends React.Component {
   render () {
     return (
       <div className='Cards'>
-        <div>
-          <div>
-            <h3>Card Feed</h3>
+        <CardBody>
+          <Container>
+            <CardTitle className='personal'>Card Feed</CardTitle>
             {this.state.cards.map(card =>
-              <Card classname='cards' key={card.id}>
-                <CardImg />
+              <Card className='eachCard' key={card.id}>
                 <CardTitle> {card.outer_message}</CardTitle>
+                <hr />
                 <CardText>{card.inner_message}</CardText>
+                <CardText>{card.color}</CardText>
+                <CardText>{card.font}</CardText>
+                <CardText>{card.border}</CardText>
                 <small classname='text-muted'>Card created by {card.author.username} on {moment(card.posted_at).format('MMMM Do YYYY')}</small>
               </Card>)}
-          </div>
-        </div>
+          </Container>
+        </CardBody>
       </div>
     )
   }

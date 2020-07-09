@@ -43,7 +43,7 @@ class Login extends React.Component {
       <div>
         <div>
           {
-            this.state.token
+            this.props.token
               ? (
                 <div>
                   <hr />

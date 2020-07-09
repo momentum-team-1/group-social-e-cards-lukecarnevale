@@ -20,7 +20,7 @@ function Navigation () {
               <NavLink href='/cards/all/'>Card Feed</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/friends/'>Friends</NavLink>
+              <NavLink href='/follows/'>Connections</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href='/auth/users/me/'>Profile</NavLink>

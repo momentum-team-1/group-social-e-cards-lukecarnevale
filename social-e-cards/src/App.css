@@ -24,6 +24,12 @@ main > .container {
   ;
 }
 
+.cardTitle {
+  font-weight: 10px;
+  padding-top: 20px;
+  text-align: center;
+  font-weight: 100%
+}
 
 .backgroundLC {
   background-color: #ff6f61;
@@ -42,7 +48,7 @@ main > .container {
       
 .backgroundRQ {
   background-color:#F7CAC9 ;
-  color: antiquewhite;
+  color: rgb(123, 122, 113);
 } 
         
 .backgroundSY {
@@ -104,7 +110,7 @@ main > .container {
   background-color: #55B4B0;
   color: antiquewhite;
 } 
-         
+
 .backgroundTL {
   background-color: #E15D44;
   color: antiquewhite;
@@ -130,22 +136,14 @@ main > .container {
   color: antiquewhite;
 } 
 
-.borderTopDotted {
-  border-top: 7px dotted #000;
-  box-shadow: inset 0 -3px 0 0 #000, 0 3px 0 0 #000;
-}
-
-.borderBottomDotted {
-  border-bottom: 7px dotted #000;
-  box-shadow: inset 0 -3px 0 0 #000, 0 3px 0 0 #000;
-}
-
 .borderSolid {
-  border: rgb(70, 70, 70) solid;
+  border: rgb(101, 101, 101) solid;
+  border-radius: 0.5rem;
 }
 
 .borderDashed {
-  border: rgb(70, 70, 70) inset;
+  border: rgb(101, 101, 101) inset;
+  border-radius: 0.5rem;
 }
 
 .fontModern {
@@ -156,7 +154,7 @@ main > .container {
 }
 
 .fontEmphasis {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .myCards {
@@ -168,7 +166,7 @@ main > .container {
 }
 
 .personal {
-  font-size: 150%;
+  font-size: 200%;
   text-align: center;
   padding-left: 20%;
   padding: 3%;

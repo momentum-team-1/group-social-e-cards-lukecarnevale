@@ -44,7 +44,7 @@ export function getUsersInfo (token) {
   })
 }
 
-export function getFollows (token) {
+export function getFollowersList (token) {
   return request.get('/follows/', {
     headers: {
       Authorization: `Token ${token}`
@@ -55,13 +55,13 @@ export function getFollows (token) {
   })
 }
 
-// export function getCardId (token) {
-//   return request.get(`/cards/${id}/`, {
-//     headers: {
-//       Authorization: `Token ${token}`
-//     }
-//   }).then(res => {
-//     console.log('cardID', res.data)
-//     return res.data.results
-//   })
-// }
+export function getFollowersCards (token) {
+  return request.get('/cards/friends_cards/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => {
+    console.log('getfriends', res.data)
+    return res.data
+  })
+}

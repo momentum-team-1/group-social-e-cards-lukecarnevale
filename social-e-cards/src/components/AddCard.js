@@ -70,7 +70,7 @@ class AddCard extends React.Component {
       <div>
         <Container row>
           <Col sm={10}>
-            <h1> Add a New Card!</h1>
+            <h1 className='cardTitle'> Add a New Card!</h1>
           </Col>
           <CardBody className='form-area'>
             <Form onSubmit={this.handleSubmit}>
@@ -93,7 +93,7 @@ class AddCard extends React.Component {
                   type='textarea'
                   id='innerText'
                   placeholder='Write your meaningful message here!'
-                  maxLength='140'
+                  maxLength='500'
                   rows='7'
                 />
               </FormGroup>

@@ -12,7 +12,8 @@ class Profile extends React.Component {
     this.state = {
       token: window.localStorage.getItem('login_auth_token'),
       username: window.localStorage.getItem('login_username') || '',
-      cards: []
+      cards: [],
+      deleted: false
     }
   }
 
@@ -30,14 +31,39 @@ class Profile extends React.Component {
     }
   }
 
+  handleDeleteCard (cardID) {
+    console.log(cardID)
+    if (this.state.token) {
+      axios.delete(`https://ld-social-cards.herokuapp.com/api/cards/${cardID}/`, {
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        }
+      })
+        .then(response => {
+          console.log(response)
+          if (response.data.results != null) {
+            window('card deleted!')
+            this.setState({
+              cards: this.state.cards.filter(card => card.id !== cardID)
+            })
+              .then(response =>
+                this.setState({ deleted: true }))
+          }
+        })
+    }
+  }
+
   render () {
+    if (this.state.deleted) {
+      return <Redirect to='/cards/' />
+    }
     return (
       <div>
         <div>
           <CardTitle className='personal'> This is your personal card stack, {this.state.username}</CardTitle>
         </div>
         <Container className='myCards'>
-          {this.state.cards.map(card => <Card className='eachCard' key={card.id}>
+          {this.state.cards.map((card, id) => <Card className='eachCard' key={card.id}>
             <CardBody className={classNames({
               backgroundLC: card.color === 'Living Coral',
               backgroundUV: card.color === 'Ultra Violet',
@@ -60,7 +86,6 @@ class Profile extends React.Component {
               backgroundTR: card.color === 'True Red',
               backgroundFR: card.color === 'Fuchsia Rose',
               backgroundCB: card.color === 'Cerulean Blue',
-
               borderSolid: card.border === 'Solid',
               borderInset: card.border === 'Inset',
               fontModern: card.font === 'Montserrat + Lora (Modern)',
@@ -68,12 +93,15 @@ class Profile extends React.Component {
               fontEmphasis: card.font === 'Archivo Black + Judson (Emphasis)'
             })}
             >
-              <CardTitle> {card.outer_message}</CardTitle>
+              <h2> {card.outer_message}</h2>
               <hr />
-              <CardText>{card.inner_message}</CardText>
-              <CardText>{card.color}</CardText>
-              <CardText>{card.font}</CardText>
-              <CardText>{card.border}</CardText>
+              <h4>{card.inner_message}</h4>
+              <br />
+              <CardText>
+                <small><strong>Styles Used:</strong> Color: {card.color} -- Font: {card.font} -- Border: {card.border}</small>
+                <br />
+                <small classname='text-muted'>Card created by {card.author.username} on {moment(card.posted_at).format('MMMM Do YYYY')}</small>
+              </CardText>
               <br />
               <small classname='text-muted'>You created this card on {moment(card.posted_at).format('MMMM Do YYYY')}</small>
               <br />
@@ -88,12 +116,12 @@ class Profile extends React.Component {
                 <Button
                   color='danger'
                   size='sm'
-
+                  onClick={this.handleDeleteCard.bind(this, card.id)}
                 >Delete
                 </Button>
               </div>
             </CardBody>
-          </Card>)}
+                                              </Card>)}
         </Container>
       </div>
     )

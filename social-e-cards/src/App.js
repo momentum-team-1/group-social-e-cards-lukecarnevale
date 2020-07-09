@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Cards from './components/Cards'
 import Login from './components/Login'
 import Profile from './components/Profile'
+import Followers from './components/Followers'
 import {
   CardHeader, CardFooter, CardBody, CardText
 } from 'reactstrap'
@@ -54,6 +55,7 @@ class App extends React.Component {
             <Route path='/auth/users/me/'><Profile authToken={this.state.token} /> </Route>
             <Route path='/cards/all/'><Cards authToken={this.state.token} /> </Route>
             <Route path='/addcard/'><AddCard authToken={this.state.token} /> </Route>
+            <Route path='/follows/'><Followers authToken={this.state.token} /> </Route>
             <Route path='/cards/'><EditCard authToken={this.state.token} /> </Route>
           </Switch>
         </Router>

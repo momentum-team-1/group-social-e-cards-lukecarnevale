@@ -41,13 +41,10 @@ class Profile extends React.Component {
       })
         .then(response => {
           console.log(response)
-          if (response.data.results != null) {
-            window('card deleted!')
+          if (response.status === 204) {
             this.setState({
-              cards: this.state.cards.filter(card => card.id !== cardID)
+              cards: this.state.cards.filter(card => card.id != cardID)
             })
-              .then(response =>
-                this.setState({ deleted: true }))
           }
         })
     }

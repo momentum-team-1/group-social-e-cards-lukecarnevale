@@ -14,7 +14,6 @@ class Login extends React.Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this)
-    // this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogin (event) {
@@ -30,14 +29,6 @@ class Login extends React.Component {
       })
   }
 
-  // handleLogout (event) {
-  //   event.preventDefault()
-
-  //   this.setState({ token: null, username: '' })
-  //   localStorage.removeItem('login_username')
-  //   localStorage.removeItem('login_auth_token')
-  // }
-
   render () {
     return (
       <div>
@@ -47,7 +38,7 @@ class Login extends React.Component {
               ? (
                 <div>
                   <hr />
-                  <h4>Welcome, {this.state.username}!</h4>
+                  <h4>Welcome, {this.props.username}!</h4>
                   <Button color='link' onClick={this.handleLogout}>Log out</Button>
                   <hr />
                 </div>

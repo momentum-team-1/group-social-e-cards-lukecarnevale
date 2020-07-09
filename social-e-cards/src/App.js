@@ -51,7 +51,7 @@ class App extends React.Component {
             <Navigation />
           </CardHeader>
           <Switch>
-            <Route path='/login/'><Login setUserCredentials={this.setUserCredentials} /> </Route>
+            <Route path='/login/'><Login username={this.state.username} token={this.state.token} setUserCredentials={this.setUserCredentials} /> </Route>
             <Route path='/auth/users/me/'><Profile authToken={this.state.token} /> </Route>
             <Route path='/cards/all/'><Cards authToken={this.state.token} /> </Route>
             <Route path='/addcard/'><AddCard authToken={this.state.token} /> </Route>

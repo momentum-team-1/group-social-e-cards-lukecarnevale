@@ -12,6 +12,16 @@ main > .container {
 
 }
 
+.cardbody {
+  text-align: center;
+}
+
+.logincomp {
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
 .eachCard {
   padding: 20px;
   margin-bottom: 20px;
@@ -88,7 +98,7 @@ main > .container {
                     
 .backgroundMM {
   background-color:#EFC050 ;
-  color: antiquewhite;
+  color: rgb(228, 92, 34);
 } 
                   
 .backgroundBI {
@@ -170,6 +180,10 @@ main > .container {
   text-align: center;
   padding-left: 20%;
   padding: 3%;
+}
+
+.attribDes {
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .footer {

@@ -22,7 +22,7 @@ class App extends React.Component {
       token: localStorage.getItem('login_auth_token')
     }
     this.setUserCredentials = this.setUserCredentials.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+    // this.handleLogout = this.handleLogout.bind(this)
   }
 
   setUserCredentials (username, token) {
@@ -34,13 +34,13 @@ class App extends React.Component {
     localStorage.setItem('login_auth_token', token)
   }
 
-  handleLogout (event) {
-    event.preventDefault()
+  // handleLogout (event) {
+  //   event.preventDefault()
 
-    this.setState({ token: null, username: '' })
-    localStorage.removeItem('login_username')
-    localStorage.removeItem('login_auth_token')
-  }
+  //   this.setState({ token: null, username: '' })
+  //   localStorage.removeItem('login_username')
+  //   localStorage.removeItem('login_auth_token')
+  // }
 
   render () {
     return (

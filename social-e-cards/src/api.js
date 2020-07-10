@@ -17,9 +17,9 @@ export function getCards (token) {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log('api', res.data)
     return res.data.results
   })
+  // token is necessary in the header in order to recieve the data as a response
 }
 
 export function getUsersCards (token) {

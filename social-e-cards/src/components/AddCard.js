@@ -166,6 +166,7 @@ class AddCard extends React.Component {
                     required
                   >
                     <option value=''>---</option>
+                    <option value='None'>No Border</option>
                     <option value='Inset'>Inset</option>
                     <option value='Solid'>Solid</option>
 

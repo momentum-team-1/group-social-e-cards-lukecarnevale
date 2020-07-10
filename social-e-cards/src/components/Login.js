@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { getToken } from '../Api'
-import { Button, Form, FormGroup, Label, Input, CardBody } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, CardBody, Container } from 'reactstrap'
 
 class Login extends React.Component {
   constructor () {
@@ -14,6 +14,7 @@ class Login extends React.Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogin (event) {
@@ -29,18 +30,28 @@ class Login extends React.Component {
       })
   }
 
+  handleLogout (event) {
+    event.preventDefault()
+
+    this.setState({ token: null, username: '' })
+    localStorage.removeItem('login_username')
+    localStorage.removeItem('login_auth_token')
+  }
+
   render () {
     return (
       <div>
-        <div>
+        <Container className='logincomp'>
           {
             this.props.token
               ? (
                 <div>
-                  <hr />
-                  <h4>Welcome, {this.props.username}!</h4>
-                  <Button color='link' onClick={this.handleLogout}>Log out</Button>
-                  <hr />
+                  <CardBody>
+                    <hr />
+                    <h4>Welcome, {this.props.username}!</h4>
+                    <Button color='link' onClick={this.handleLogout}>Log out</Button>
+                    <hr />
+                  </CardBody>
                 </div>
               )
               : (
@@ -85,7 +96,7 @@ class Login extends React.Component {
                 </div>
               )
           }
-        </div>
+        </Container>
       </div>
     )
   }
